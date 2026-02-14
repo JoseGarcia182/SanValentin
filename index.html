@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Amor</title>
+    
+    <!-- Fuentes elegantes de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&family=Permanent+Marker&display=swap" rel="stylesheet">
+    
+    <style>
+/* ====================================
+   VARIABLES DE DISEÑO
+   ==================================== */
+:root {
+    --color-primary: #f4e4e1;
+    --color-secondary: #e8d5d0;
+    --color-accent: #d4a59a;
+    --color-accent-dark: #b8857a;
+    --color-gold: #d4af37;
+    --color-text-dark: #4a3f3a;
+    --color-text-light: #6b5f5a;
+    --color-white: #ffffff;
+    --color-cream: #faf7f5;
+    
+    --font-display: 'Playfair Display', serif;
+    --font-script: 'Cormorant Garamond', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --font-handwritten: 'Permanent Marker', cursive;
+    
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    
+    --transition-fast: 0.3s ease;
+    --transition-smooth: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-dark);
+    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-primary) 100%);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ====================================
+   CORAZONES FLOTANTES
+   ==================================== */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    color: rgba(212, 165, 154, 0.15);
+    animation: float-heart 15s infinite ease-in-out;
+}
+
+@keyframes float-heart {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ====================================
+   HERO SECTION
+   ==================================== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing-md);
+    z-index: 2;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, transparent 70%);
+}
+
+.hero-content {
+    animation: hero-fade-in 1.5s var(--transition-slow) forwards;
+    opacity: 0;
+}
+
+@keyframes hero-fade-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 500;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    font-family: var(--font-script);
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    color: var(--color-text-light);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: var(--spacing-sm);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-date {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-top: var(--spacing-md);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: var(--spacing-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--color-accent), transparent);
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+section {
+    position: relative;
+    z-index: 2;
+    padding: var(--spacing-xl) 0;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--color-text-dark);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+}
+
+.section-subtitle {
+    font-family: var(--font-script);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--color-text-light);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+}
+
+/* ====================================
+   MENSAJE PERSONAL
+   ==================================== */
+.personal-message {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 0 var(--spacing-md);
+}
+
+.message-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.message-text {
+    font-family: var(--font-script);
+    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+    line-height: 1.8;
+    color: var(--color-text-dark);
+}
+
+.message-text p {
+    margin-bottom: var(--spacing-md);
+    opacity: 0;
+    animation: fade-in-text 1s var(--transition-smooth) forwards;
+}
+
+.message-text p:nth-child(1) { animation-delay: 0.2s; }
+.message-text p:nth-child(2) { animation-delay: 0.4s; }
+.message-text p:nth-child(3) { animation-delay: 0.6s; }
+.message-text p:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fade-in-text {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* ====================================
+   GALERÍA ESTILO POLAROID DISPERSAS
+   ==================================== */
+.gallery {
+    padding: var(--spacing-xl) 0;
+    min-height: 100vh;
+}
+
+.photo-table {
+    position: relative;
+    width: 100%;
+    min-height: 800px;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.4) 0%, 
+        rgba(244, 228, 225, 0.3) 100%);
+    border-radius: 30px;
+    padding: var(--spacing-lg);
+    box-shadow: 
+        inset 0 2px 20px rgba(0, 0, 0, 0.05),
+        0 10px 50px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    margin-top: var(--spacing-lg);
+}
+
+.polaroid {
+    position: absolute;
+    background: white;
+    padding: 15px;
+    padding-bottom: 60px;
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        0 10px 30px rgba(0, 0, 0, 0.15);
+    cursor: move;
+    transition: box-shadow 0.3s ease;
+    border-radius: 2px;
+    user-select: none;
+}
+
+.polaroid:hover {
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.15),
+        0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.polaroid.dragging {
+    z-index: 1000 !important;
+    cursor: grabbing;
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.25),
+        0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.polaroid-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+}
+
+.polaroid-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: var(--font-handwritten);
+    font-size: 0.875rem;
+    color: #555;
+    padding: 0 15px;
+}
+
+/* Posiciones y rotaciones iniciales aleatorias */
+.polaroid:nth-child(1) {
+    top: 50px;
+    left: 5%;
+    transform: rotate(-8deg);
+    z-index: 1;
+}
+
+.polaroid:nth-child(2) {
+    top: 80px;
+    left: 30%;
+    transform: rotate(5deg);
+    z-index: 2;
+}
+
+.polaroid:nth-child(3) {
+    top: 40px;
+    left: 65%;
+    transform: rotate(-3deg);
+    z-index: 3;
+}
+
+.polaroid:nth-child(4) {
+    top: 380px;
+    left: 8%;
+    transform: rotate(7deg);
+    z-index: 4;
+}
+
+.polaroid:nth-child(5) {
+    top: 350px;
+    left: 35%;
+    transform: rotate(-5deg);
+    z-index: 5;
+}
+
+.polaroid:nth-child(6) {
+    top: 400px;
+    left: 63%;
+    transform: rotate(4deg);
+    z-index: 6;
+}
+
+/* Animación de aparición escalonada */
+.polaroid {
+    opacity: 0;
+    animation: polaroid-appear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.polaroid:nth-child(1) { animation-delay: 0.1s; }
+.polaroid:nth-child(2) { animation-delay: 0.2s; }
+.polaroid:nth-child(3) { animation-delay: 0.3s; }
+.polaroid:nth-child(4) { animation-delay: 0.4s; }
+.polaroid:nth-child(5) { animation-delay: 0.5s; }
+.polaroid:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes polaroid-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px) rotate(0deg) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(var(--rotation)) scale(1);
+    }
+}
+
+/* ====================================
+   LÍNEA DE TIEMPO
+   ==================================== */
+.timeline {
+    padding: var(--spacing-xl) 0;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: var(--spacing-lg) auto 0;
+    padding: 0 var(--spacing-md);
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+        transparent 0%, 
+        var(--color-accent) 10%, 
+        var(--color-accent) 90%, 
+        transparent 100%
+    );
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.timeline-item.aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: auto;
+    padding-left: var(--spacing-lg);
+    text-align: left;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-right: auto;
+    padding-right: var(--spacing-lg);
+    text-align: right;
+}
+
+.timeline-content {
+    width: calc(50% - 30px);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-md);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-gold);
+    border: 4px solid var(--color-cream);
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+    z-index: 2;
+}
+
+.timeline-date {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
+}
+
+.timeline-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.timeline-text {
+    font-family: var(--font-script);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+}
+
+@media (max-width: 768px) {
+    .timeline-line {
+        left: 20px;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        width: calc(100% - 60px);
+        margin-left: 60px;
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+        text-align: left;
+    }
+    
+    .timeline-marker {
+        left: 20px;
+    }
+}
+
+/* ====================================
+   SORPRESA ESPECIAL
+   ==================================== */
+.surprise {
+    padding: var(--spacing-xl) 0;
+}
+
+.surprise-box {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.surprise-title {
+    margin-bottom: var(--spacing-lg);
+}
+
+.surprise-button {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+    color: var(--color-white);
+    border: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    transition: all var(--transition-smooth);
+    box-shadow: 0 10px 30px rgba(212, 165, 154, 0.3);
+}
+
+.surprise-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(212, 165, 154, 0.4);
+}
+
+.button-heart {
+    width: 24px;
+    height: 24px;
+    animation: heart-beat 1.5s infinite;
+}
+
+@keyframes heart-beat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    10%, 30% {
+        transform: scale(1.2);
+    }
+    20%, 40% {
+        transform: scale(1);
+    }
+}
+
+.surprise-reveal {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-slow);
+    margin-top: var(--spacing-lg);
+}
+
+.surprise-reveal.active {
+    max-height: 1000px;
+}
+
+.surprise-message {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-lg);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    animation: surprise-fade-in 1s var(--transition-smooth) forwards;
+}
+
+@keyframes surprise-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.surprise-message h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.surprise-message p {
+    font-family: var(--font-script);
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.surprise-final {
+    font-size: 1.5rem !important;
+    color: var(--color-accent) !important;
+    font-weight: 500;
+    margin-top: var(--spacing-md) !important;
+}
+
+/* ====================================
+   FOOTER
+   ==================================== */
+.footer {
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.animated-heart {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-md);
+    color: var(--color-accent);
+    animation: heart-pulse 2s infinite ease-in-out;
+}
+
+.animated-heart svg {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes heart-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+.footer-message {
+    font-family: var(--font-script);
+    font-size: 1.25rem;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-xs);
+    font-style: italic;
+}
+
+.footer-date {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+/* ====================================
+   RESPONSIVE
+   ==================================== */
+@media (max-width: 768px) {
+    .photo-table {
+        min-height: 1200px;
+    }
+    
+    .polaroid-image {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .polaroid:nth-child(1) { top: 50px; left: 5%; }
+    .polaroid:nth-child(2) { top: 280px; left: 10%; }
+    .polaroid:nth-child(3) { top: 520px; left: 5%; }
+    .polaroid:nth-child(4) { top: 760px; left: 8%; }
+    .polaroid:nth-child(5) { top: 1000px; left: 10%; }
+    .polaroid:nth-child(6) { top: 50px; right: 5%; }
+}
+    </style>
+</head>
+<body>
+    
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Para la persona que hace mis días más lindos</h1>
+            <p class="hero-subtitle">Cada momento con vos tiene algo especial</p>
+            <div class="hero-date">14 de Febrero, 2026</div>
+        </div>
+        <div class="scroll-indicator">
+            <span>desliza</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Mensaje Personal -->
+    <section class="personal-message" id="message">
+        <div class="container">
+            <div class="message-content">
+                <h2 class="section-title">Mi Amor</h2>
+               <div class="message-text">
+    <p>Desde aquella noche en la que hablamos casi sin parar y nos fuimos conociendo de a poco, supe que había algo distinto en vos, algo especial.</p>
+
+    <p>Me encanta tu forma de sonreír cuando pensás que no te estoy mirando, cómo tu risa cambia el clima de cualquier lugar y cómo tu compañía convierte momentos simples, como caminar por la ciudad, en recuerdos que quedan.</p>
+
+    <p>Gracias por estar, por acompañarme, por cada charla hasta tarde, cada plan compartido y cada momento que elegís regalarme.</p>
+
+    <p>Esta página es apenas una pequeña parte de todo lo que significás para mí.</p>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería de Fotos Polaroid -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Nuestros Momentos</h2>
+            <p class="section-subtitle">Mueve las fotos como quieras, están aquí para que las recuerdes</p>
+            
+            <div class="photo-table" id="photoTable">
+                <!-- PERSONALIZA: Cambia las URLs de las imágenes por tus propias fotos -->
+                <!-- Foto 1 -->
+                <div class="polaroid" data-index="0">
+                    <img src="Foto1.jpeg" alt="Nuestro momento" class="polaroid-image">
+                    <div class="polaroid-caption">Las famosas auroras ♥</div>
+                </div>
+                
+                <!-- Foto 2 -->
+                <div class="polaroid" data-index="1">
+                    <img src="Foto9.jpeg" alt="Nuestro momento" class="polaroid-image">
+                    <div class="polaroid-caption">Un dia muy especial!</div>
+                </div>
+                
+                <!-- Foto 3 -->
+                <div class="polaroid" data-index="2">
+                    <img src="Foto10.jpeg" alt="Nuestro momento" class="polaroid-image">
+                    <div class="polaroid-caption">Siempre bien alimentados</div>
+                </div>
+                
+                <!-- Foto 4 -->
+                <div class="polaroid" data-index="3">
+                    <img src="Foto2.jpeg" alt="Nuestro momento" class="polaroid-image">
+                    <div class="polaroid-caption">Lugares raros</div>
+                </div>
+                
+                <!-- Foto 5 -->
+                <div class="polaroid" data-index="4">
+                    <img src="Foto7.jpeg" alt="Nuestro momento" class="polaroid-image">
+                    <div class="polaroid-caption">La ratoncita mas hermosa de Disney</div>
+                </div>
+                
+                <!-- Foto 6 -->
+                <div class="polaroid" data-index="5">
+                    <img src="Foto8.jpeg" alt="Nuestro momento" class="polaroid-image">
+                    <div class="polaroid-caption">Nuestra aventura</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Línea de Tiempo -->
+    <section class="timeline" id="timeline">
+        <div class="container">
+            <h2 class="section-title">Nuestra Historia</h2>
+            
+            <div class="timeline-container">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">El Comienzo</div>
+                        <h3 class="timeline-title">Cuando Todo Empezó</h3>
+                        <p class="timeline-text">
+    Todo empezó esa noche en el bar. Nos conocimos casi sin pensarlo y una simple charla se transformó en horas de conversación, 
+    risas y miradas que decían más que las palabras. Hablamos toda la noche, como si el tiempo no existiera, y desde ese momento no nos 
+    separamos más. Ahí entendí que algo muy especial estaba empezando.
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                    <div class="timeline-date">Los Primeros Momentos</div>
+<h3 class="timeline-title">Descubriéndonos</h3>
+<p class="timeline-text">
+    Cada encuentro era una forma de conocernos un poco más. Ir descubriendo tus gustos, tus ideas, tu manera de ver el mundo y tu inconfundible creatividad. Con cada charla y cada sonrisa, empecé a sentirme cada vez más cerca tuyo.
+</p>
+
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      <div class="timeline-date">Nuestro Primer Viaje</div>
+<h3 class="timeline-title">Brasil</h3>
+<p class="timeline-text">
+    Nuestro primer viaje juntos fue a Brasil. En Barra da Lagoa, las tardes en piscinas se mezclaban con charlas sin apuro y risas compartidas.Mozambique, ver el amanecer juntos fue uno de esos momentos simples que quedan guardados para siempre. Así, entre lugares nuevos y tiempo compartido, empezamos a construir recuerdos muy nuestros.
+</p>
+
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Hoy</div>
+                        <h3 class="timeline-title">Nuestro Presente</h3>
+                        <p class="timeline-text">
+                            Aquí estamos, más unidos que nunca. Cada día juntos es un regalo. Gracias por elegirme, por amarme, por ser mi compañera en esta hermosa aventura que es la vida. Te amo más de lo que imaginas.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sorpresa Especial -->
+    <section class="surprise" id="surprise">
+        <div class="container">
+            <div class="surprise-box">
+                <h2 class="section-title surprise-title">Tengo Algo Que Decirte</h2>
+                <button class="surprise-button" id="surpriseButton">
+                    <span class="button-text">Haz click aquí</span>
+                    <svg class="button-heart" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </button>
+                
+                <div class="surprise-reveal" id="surpriseReveal">
+                    <div class="surprise-message">
+                        <h3>Sos la razón de mi sonrisa</h3>
+                        <p>No necesito un día especial para decirte cuánto te amo, pero hoy quiero que sepas que sos lo mejor que me ha pasado en la vida. Gracias por existir, por amarme, por ser exactamente quien sos conmigo.</p>
+                        <p class="surprise-final">Te amo hoy, mañana y siempre. 💕</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="animated-heart">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+            </div>
+            <p class="footer-message">Hecho con amor, solo para vos. <br>Mi gordita especial</p>
+            <p class="footer-date">San Valentín 2026</p>
+        </div>
+    </footer>
+
+    <script>
+// ====================================
+// CORAZONES FLOTANTES
+// ====================================
+document.addEventListener('DOMContentLoaded', function() {
+    initFloatingHearts();
+    initDraggablePhotos();
+    initScrollAnimations();
+    initSurpriseButton();
+});
+
+function initFloatingHearts() {
+    const container = document.getElementById('floatingHearts');
+    const heartCount = 15;
+    
+    for (let i = 0; i < heartCount; i++) {
+        createFloatingHeart(container);
+    }
+}
+
+function createFloatingHeart(container) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '♥';
+    
+    heart.style.left = Math.random() * 100 + '%';
+    const size = 15 + Math.random() * 25;
+    heart.style.fontSize = size + 'px';
+    heart.style.animationDelay = Math.random() * 15 + 's';
+    heart.style.animationDuration = (12 + Math.random() * 8) + 's';
+    
+    container.appendChild(heart);
+    
+    setTimeout(() => {
+        heart.remove();
+        createFloatingHeart(container);
+    }, (12 + Math.random() * 8) * 1000);
+}
+
+// ====================================
+// FOTOS POLAROID ARRASTRABLES
+// ====================================
+function initDraggablePhotos() {
+    const polaroids = document.querySelectorAll('.polaroid');
+    
+    polaroids.forEach((polaroid, index) => {
+        let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        let isDragging = false;
+        
+        // Rotaciones originales para cada foto
+        const rotations = [-8, 5, -3, 7, -5, 4];
+        const originalRotation = rotations[index];
+        
+        polaroid.onmousedown = dragMouseDown;
+        polaroid.ontouchstart = dragTouchStart;
+        
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            
+            // Limpiar animación y fijar la rotación y opacidad
+            polaroid.style.animation = 'none';
+            polaroid.style.opacity = '1';
+            polaroid.style.transform = `rotate(${originalRotation}deg)`;
+            
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            isDragging = true;
+            
+            polaroid.classList.add('dragging');
+            bringToFront(polaroid);
+            
+            document.onmouseup = closeDragElement;
+            document.onmousemove = elementDrag;
+        }
+        
+        function dragTouchStart(e) {
+            e.preventDefault();
+            
+            // Limpiar animación y fijar la rotación y opacidad
+            polaroid.style.animation = 'none';
+            polaroid.style.opacity = '1';
+            polaroid.style.transform = `rotate(${originalRotation}deg)`;
+            
+            const touch = e.touches[0];
+            pos3 = touch.clientX;
+            pos4 = touch.clientY;
+            isDragging = true;
+            
+            polaroid.classList.add('dragging');
+            bringToFront(polaroid);
+            
+            document.ontouchend = closeDragElement;
+            document.ontouchmove = elementDragTouch;
+        }
+        
+        function elementDrag(e) {
+            if (!isDragging) return;
+            e = e || window.event;
+            e.preventDefault();
+            
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            
+            polaroid.style.top = (polaroid.offsetTop - pos2) + "px";
+            polaroid.style.left = (polaroid.offsetLeft - pos1) + "px";
+        }
+        
+        function elementDragTouch(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            const touch = e.touches[0];
+            
+            pos1 = pos3 - touch.clientX;
+            pos2 = pos4 - touch.clientY;
+            pos3 = touch.clientX;
+            pos4 = touch.clientY;
+            
+            polaroid.style.top = (polaroid.offsetTop - pos2) + "px";
+            polaroid.style.left = (polaroid.offsetLeft - pos1) + "px";
+        }
+        
+        function closeDragElement() {
+            isDragging = false;
+            polaroid.classList.remove('dragging');
+            document.onmouseup = null;
+            document.onmousemove = null;
+            document.ontouchend = null;
+            document.ontouchmove = null;
+        }
+        
+        function bringToFront(element) {
+            const allPolaroids = document.querySelectorAll('.polaroid');
+            let maxZ = 0;
+            allPolaroids.forEach(p => {
+                const z = parseInt(window.getComputedStyle(p).zIndex) || 0;
+                if (z > maxZ) maxZ = z;
+            });
+            element.style.zIndex = maxZ + 1;
+        }
+    });
+}
+
+// ====================================
+// SCROLL ANIMATIONS
+// ====================================
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('aos-animate');
+            }
+        });
+    }, observerOptions);
+    
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(item => observer.observe(item));
+}
+
+// ====================================
+// BOTÓN SORPRESA
+// ====================================
+function initSurpriseButton() {
+    const button = document.getElementById('surpriseButton');
+    const reveal = document.getElementById('surpriseReveal');
+    
+    button.addEventListener('click', function() {
+        reveal.classList.toggle('active');
+        
+        if (reveal.classList.contains('active')) {
+            button.querySelector('.button-text').textContent = 'Ocultar mensaje';
+            setTimeout(() => {
+                reveal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+        } else {
+            button.querySelector('.button-text').textContent = 'Haz click aquí';
+        }
+        
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            button.style.transform = '';
+        }, 200);
+    });
+}
+
+// ====================================
+// PARALLAX HERO
+// ====================================
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.hero-content');
+    
+    if (hero && scrolled < window.innerHeight) {
+        hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+        hero.style.opacity = 1 - (scrolled / window.innerHeight) * 0.5;
+    }
+});
+
+console.log('💕 Página cargada con amor - Arrastra las fotos para moverlas');
+    </script>
+</body>
+</html>
